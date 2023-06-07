@@ -5,5 +5,5 @@ from application.db.base import DBSession
 
 if __name__ == '__main__':
     bd_test = BaseModel
-    bd
+    bd_test.
     print(round(calculate_salary(), 2))
