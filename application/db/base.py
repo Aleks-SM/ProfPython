@@ -19,7 +19,7 @@ class DBSession():
       self.session.close()
 
   def create_conect(self):
-    dsn = "{}://{}:{}@localhost:{}/{}".format(self.bd, self.bd_username, self.bd_pass, self.bd_port, self.bd_name)
+    dsn = "{}://{}:{}@{}:{}/{}".format(self.database, self.database_username, self.database_pass, self.database_host self.database_port, self.database_name)
   return dsn
 
   def create_tables(self, engine):
