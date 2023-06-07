@@ -7,11 +7,9 @@ def read_json(file_name, engine):
         data = json.load(f)
         for record in data:
             model = {
-                'publisher': Publisher,
-                'shop': Shop,
-                'book': Book,
-                'stock': Stock,
-                'sale': Sale,
+                'empoyees': Empoyees,
+                'departments': Departments,
+                'empoyee_departments': Empoyee_Departments
             }[record.get('model')]
             session.add(model(id=record.get('pk'), **record.get('fields')))
         session.commit()
