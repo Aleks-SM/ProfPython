@@ -7,7 +7,7 @@ def read_json(file_name, engine):
         data = json.load(f)
         for record in data:
             model = {
-                'empoyees': Empoyees,
+                'empoyees': Empoyee,
                 'departments': Departments,
                 'empoyee_departments': EmpoyeeDepartments
             }[record.get('model')]
