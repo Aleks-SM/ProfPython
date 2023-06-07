@@ -1,5 +1,4 @@
 import sqlalchemy as sa
-from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from .base import BaseModel
 
 
