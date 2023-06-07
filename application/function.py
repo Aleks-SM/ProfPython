@@ -1,3 +1,5 @@
+from application.db.models.employee import Employee
+from application.db.models.department import Department
 
 def read_json(file_name, engine):
     Session = sessionmaker(bind=engine)
@@ -7,7 +9,7 @@ def read_json(file_name, engine):
         data = json.load(f)
         for record in data:
             model = {
-                'empoyees': Empoyee,
+                'empoyees': Employee,
                 'departments': Department,
                 'empoyee_departments': EmpoyeeDepartments
             }[record.get('model')]
