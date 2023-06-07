@@ -17,3 +17,11 @@ class DBSession():
  
   def close_session(self):
       self.session.close()
+
+  def create_conect(self):
+    dsn = "{}://{}:{}@localhost:{}/{}".format(self.bd, self.bd_username, self.bd_pass, self.bd_port, self.bd_name)
+  return dsn
+
+  def create_tables(self, engine):
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
