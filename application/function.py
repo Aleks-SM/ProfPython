@@ -1,5 +1,6 @@
 from application.db.models.employee import Employee
 from application.db.models.department import Department
+from application.db.models.department import EmployeeDepartments
 
 def read_json(file_name, engine):
     Session = sessionmaker(bind=engine)
@@ -11,7 +12,7 @@ def read_json(file_name, engine):
             model = {
                 'empoyees': Employee,
                 'departments': Department,
-                'empoyee_departments': EmpoyeeDepartments
+                'empoyee_departments': EmployeeDepartments
             }[record.get('model')]
             session.add(model(id=record.get('pk'), **record.get('fields')))
         session.commit()
