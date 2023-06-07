@@ -8,7 +8,7 @@ def read_json(file_name, engine):
         for record in data:
             model = {
                 'empoyees': Empoyee,
-                'departments': Departments,
+                'departments': Department,
                 'empoyee_departments': EmpoyeeDepartments
             }[record.get('model')]
             session.add(model(id=record.get('pk'), **record.get('fields')))
