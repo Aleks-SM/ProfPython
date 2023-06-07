@@ -3,9 +3,9 @@
   {"model": "empoyees", "pk": 2, "fields": {"first_name": "Artur"}, {"last_name": "Popov"}, {"date_birth": "15.05.1971"}},
   {"model": "empoyees", "pk": 3, "fields": {"first_name": "Denis"}, {"last_name": "Antonov"}, {"date_birth": "21.05.1968"}},
   {"model": "empoyees", "pk": 4, "fields": {"first_name": "Natasha"}, {"last_name": "Kovaleva"}, {"date_birth": "30.09.1985"}}
-  {"model": "departments", "pk": 1, "fields": {"name": "No starch press"}}
-  {"model": "departments", "pk": 2, "fields": {"name": "No starch press"}}
-  {"model": "departments", "pk": 3, "fields": {"name": "No starch press"}}
+  {"model": "departments", "pk": 1, "fields": {"name": "Directorate"}}
+  {"model": "departments", "pk": 2, "fields": {"name": "IT"}}
+  {"model": "departments", "pk": 3, "fields": {"name": "Bookkeeping"}}
   {"model": "empoyee_departments", "pk": 1, "fields": {"employees.id": 1}, {"departments.id": 1}}
   {"model": "empoyee_departments", "pk": 2, "fields": {"employees.id": 2}, {"departments.id": 2}}
   {"model": "empoyee_departments", "pk": 3, "fields": {"employees.id": 3}, {"departments.id": 1}}
