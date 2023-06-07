@@ -1,29 +1,43 @@
-from sqlalchemy.orm import Session
+import os
 
-from application.db.models.base import BaseModel
+import sqlalchemy as sq
+from dotenv import load_dotenv
+from sqlalchemy.orm import sessionmaker, Session
+from .models.base import Base
 
-class DBSession():
+class DBSession(object):
+    _session: Session
+    def __init__(self, session: Session):
+        dotenv_path = os.path.join(os.path.dirname(__file__), '.envrc')
+        if os.path.exists(dotenv_path):
+            load_dotenv(dotenv_path)
+            self.database = os.getenv('database')
+            self.database_host = os.getenv('database_host')
+            self.database_port = os.getenv('database_port')
+            self.database_name = os.getenv('database_name')
+            self.database_username = os.getenv('database_username')
+            self.database_pass = os.getenv('database_pass')
+            self.file_name = os.getenv('file_name')
+            self.paths = os.path.join(os.getcwd(), self.file_name)
+            self._session = session
   
-  def __init__(self):
-    self.session = session
-  
-  def query(self):
-    return self.session.query()
-  
-  def commit_session(self, close: bool = False):
-    self.session.commit()
-    if close:
-      self.close.session()
- 
-  def close_session(self):
-      self.session.close()
+    def query(self):
+      return self._session.query()
 
-  def create_conect(self):
-    dsn = "{}://{}:{}@{}:{}/{}".format(self.database, self.database_username, self.database_pass, self.database_host self.database_port, self.database_name)
-    session = sessionmaker()
-    db_session = DBSession()
-  return dsn
+    def commit_session(self, close: bool = False):
+      self._session.commit()
+      if close:
+        self.close_session()
 
-  def create_tables(self, engine):
-    Base.metadata.drop_all(engine)
-    Base.metadata.create_all(engine)
+    def close_session(self):
+        self._session.close()
+
+    def create_conect(self):
+        DSN = "{}://{}:{}@{}:{}/{}".format(self.database, self.database_username, self.database_pass, self.database_host, self.database_port, self.database_name)
+        engine = sq.create_engine(DSN)
+        Session = sessionmaker(bind=engine)
+        db_session = DBSession(Session())
+
+    def create_tables(self, engine):
+        Base.metadata.drop_all(engine)
+        Base.metadata.create_all(engine)

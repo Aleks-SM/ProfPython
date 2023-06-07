@@ -1,10 +1,8 @@
-import datetime
-
-import sqlalchemy as sa
-from sa import Column, Integer, TIMESTAMP
-from sqlalchemy.orm import declarative_base, relationship, sessionmaker
+from sqlalchemy import Column, Integer, TIMESTAMP
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
+
 
 class BaseModel(Base):
     __abstract__ = True
@@ -15,4 +13,3 @@ class BaseModel(Base):
     
     def __repr__(self):
         return '<{0.__class__.__name__}(id={0.id!r})>'.format(self)
-      
