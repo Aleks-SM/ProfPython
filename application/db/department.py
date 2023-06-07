@@ -1,5 +1,4 @@
 from sqlalchemy import Column, VARCHAR, Integer, ForeignKey
-
 from db.base import BaseModel
 
 class Department(BaseModel):
