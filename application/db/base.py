@@ -20,6 +20,8 @@ class DBSession():
 
   def create_conect(self):
     dsn = "{}://{}:{}@{}:{}/{}".format(self.database, self.database_username, self.database_pass, self.database_host self.database_port, self.database_name)
+    session = sessionmaker()
+    db_session = DBSession()
   return dsn
 
   def create_tables(self, engine):
