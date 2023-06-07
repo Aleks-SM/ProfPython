@@ -9,7 +9,7 @@ def read_json(file_name, engine):
             model = {
                 'empoyees': Empoyees,
                 'departments': Departments,
-                'empoyee_departments': Empoyee_Departments
+                'empoyee_departments': EmpoyeeDepartments
             }[record.get('model')]
             session.add(model(id=record.get('pk'), **record.get('fields')))
         session.commit()
