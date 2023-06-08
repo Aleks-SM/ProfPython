@@ -5,11 +5,13 @@ from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker, Session
 from .models.base import Base
 
-class DBSession:
-    def __init__(self, session: Session):
+class DBSession(object):
+    _session: Session
+    def __init__(self, session: Session, *args, **kwargs):
         dotenv_path = os.path.join(os.path.dirname(__file__), '.envrc')
         if os.path.exists(dotenv_path):
             load_dotenv(dotenv_path)
+        self._session = session
         self.database = os.getenv('database')
         self.database_host = os.getenv('database_host')
         self.database_port = os.getenv('database_port')

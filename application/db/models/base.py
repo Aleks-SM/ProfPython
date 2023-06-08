@@ -1,5 +1,7 @@
-from sqlalchemy import Column, Integer, TIMESTAMP
+import datetime
 from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, Integer, TIMESTAMP
+
 
 Base = declarative_base()
 
